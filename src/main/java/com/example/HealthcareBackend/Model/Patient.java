@@ -3,6 +3,7 @@ package com.example.HealthcareBackend.Model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "patients")
 public class Patient {
 
     @Id
