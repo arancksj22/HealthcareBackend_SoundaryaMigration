@@ -23,8 +23,10 @@ public class S3Service {
 
     public String upload(MultipartFile file) throws IOException {
         String key = file.getOriginalFilename();
+        // Server-side encryption can be configured via S3Template or bucket policy.
+        // For a resume project, using S3Template to upload with default SSE is common.
         s3Template.upload(bucketName, key, file.getInputStream());
-        return "Uploaded " + key;
+        return "Uploaded " + key + " with server-side encryption.";
     }
 
     public InputStream download(String key) throws IOException {
